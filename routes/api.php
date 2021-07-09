@@ -17,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::resource('jobs', 'App\Http\Controllers\JobController');
+Route::resource('applications', 'App\Http\Controllers\ApplicationController');
+Route::post('/jobs/filter',[App\Http\Controllers\JobController::class, 'filter']);
